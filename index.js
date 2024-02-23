@@ -57,3 +57,4 @@ const addManager =() =>{
     })
 }
 
+addManager()
