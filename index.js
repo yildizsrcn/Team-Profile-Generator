@@ -16,35 +16,44 @@ const render = require("./src/page-template.js");
 const team =[];
 
 const addManager =() =>{
-    return inquirer.createPromptModule([
+    // return inquirer.createPromptModule([
+        return inquirer.createPromptModule([
 
         {
             type: "input",
             name: "name",
-            message: "What is the name of the manager?"
+            message: "What is the name of the team manager?"
 
         },
 
         {
             type: "input",
             name: "ID",
-            message: "What is the manager ID?"
+            message: "What is the team manager's ID?"
 
         },
 
         {
             type: "input",
             name: "email",
-            message: "What is the manager email address?"
+            message: "What is the team manager's email address?"
 
         },
 
 
         {
             type: "input",
-            name: "school",
-            message: "What is the manager's school?"
+            name: "officeNumber",
+            message: "What is the team manager's office number?"
 
         },
     ])
+    .then (managerInput=>{
+
+        const {name, ID, email, officeNumber} = managerInput;
+    const manager= new Manager (name,ID,email,officeNumber); 
+    team.push(manager);
+    console.log(manager);
+    })
 }
+
